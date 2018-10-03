@@ -5,13 +5,12 @@ using UnityEngine;
 public class HeadingRotator : MonoBehaviour
 {
     public Transform camera;
-	// Use this for initialization
+	
 	void Start () {
 		
 	}
 	
-	// Update is called once per frame
 	void LateUpdate () {
-        transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, camera.eulerAngles.y);
+        transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, transform.localEulerAngles.y, camera.localEulerAngles.y);
 	}
 }
