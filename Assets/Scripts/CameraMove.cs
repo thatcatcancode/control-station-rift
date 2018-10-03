@@ -19,7 +19,6 @@ public class CameraMove : MonoBehaviour
     void RotateCamera()
     {
         CheckForMouse();
-        Debug.Log(isMouseBeingUsed);
         xAxis = isMouseBeingUsed ? "Mouse Y" : "Pitch";
         yAxis = isMouseBeingUsed ? "Mouse X" : "Yaw";
 
