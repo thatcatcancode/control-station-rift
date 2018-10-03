@@ -13,7 +13,6 @@ public class CameraMove : MonoBehaviour
 	void Update ()
     {
         RotateCamera();
-        CheckForAppQuit();
     }
 
     void RotateCamera()
@@ -35,16 +34,6 @@ public class CameraMove : MonoBehaviour
         if(Input.GetMouseButtonDown(0))
         {
             isMouseBeingUsed = !isMouseBeingUsed;
-        }
-    }
-
-
-    void CheckForAppQuit()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            Application.Quit();
-            Debug.Log("Quit");
         }
     }
 }
