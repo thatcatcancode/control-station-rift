@@ -5,12 +5,16 @@ using UnityEngine;
 public class PitchMovement : MonoBehaviour
 {
     public Transform camera;
-    float previousX;
+    float previousXRotation;
     float deltaX;
+    float maxY;
+    float minY;
 
     void Start()
     {
-        previousX = camera.eulerAngles.x;
+        minY = transform.localPosition.y - 0.25f;
+        maxY = transform.localPosition.y + 0.25f;
+        previousXRotation = camera.eulerAngles.x;
     }
     
     void LateUpdate()
@@ -20,8 +24,10 @@ public class PitchMovement : MonoBehaviour
         {
             cameraXRotation -= 360;
         }
-        deltaX = previousX - cameraXRotation;
-        transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y + deltaX * Time.deltaTime, transform.localPosition.z);
-        previousX = cameraXRotation;
+        deltaX = previousXRotation - cameraXRotation;
+
+        float newY = Mathf.Clamp(transform.localPosition.y + deltaX * Time.deltaTime, minY, maxY);
+        transform.localPosition = new Vector3(transform.localPosition.x, newY, transform.localPosition.z);
+        previousXRotation = cameraXRotation;
     }
 }
