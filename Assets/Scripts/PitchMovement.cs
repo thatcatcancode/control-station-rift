@@ -12,8 +12,8 @@ public class PitchMovement : MonoBehaviour
 
     void Start()
     {
-        minY = transform.localPosition.y - 0.25f;
-        maxY = transform.localPosition.y + 0.25f;
+        minY = transform.localPosition.y - 0.5f;
+        maxY = transform.localPosition.y + 0.5f;
         previousXRotation = camera.eulerAngles.x;
     }
     
